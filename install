@@ -1,0 +1,15 @@
+sudo apt-get install build-essential
+sudo apt-get install -y python3-pip
+sudo apt install python-pip
+
+python -m pip install pyaudio
+pip install SpeechRecognition
+
+pip install --upgrade google-api-python-client
+
+sudo apt-get install libmpg123-dev
+
+
+sudo apt-get install python-pyaudio
+
+install pyowm: pip3 install pyowm
