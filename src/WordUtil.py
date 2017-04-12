@@ -6,6 +6,7 @@ ALL_CHARS = ".*"
 
 
 def is_word_in_text(text, key_words):
+    text = text.lower()
     return any(re.compile(ALL_CHARS + regex + ALL_CHARS).match(text) for regex in key_words)
 
 

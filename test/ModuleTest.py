@@ -1,7 +1,10 @@
 import unittest
 
+from module.CuriosityModule import CuriosityModule
+from module.DrinkModule import DrinkModule
 from module.JokeModule import JokeModule
 from module.SwearwordModule import SwearwordModule
+from module.ThankModule import ThankModule
 from module.TimeModule import TimeModule
 from module.WeatherModule import WeatherModule
 
@@ -43,8 +46,26 @@ class ModuleTest(unittest.TestCase):
         print(response)
         self.assertIsNotNone(response)
 
+    def test_module_curiosity(self):
+        module = CuriosityModule()
+        response = module.response("")
+        print(response)
+        self.assertIsNotNone(response)
+
     def test_module_swearword(self):
         module = SwearwordModule()
+        response = module.response("")
+        print(response)
+        self.assertIsNotNone(response)
+
+    def test_module_drink(self):
+        module = DrinkModule()
+        response = module.response("")
+        print(response)
+        self.assertIsNotNone(response)
+
+    def test_module_thank(self):
+        module = ThankModule()
         response = module.response("")
         print(response)
         self.assertIsNotNone(response)

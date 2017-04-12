@@ -3,14 +3,26 @@ import sys
 
 from Listener import Listener
 from Speaker import Speaker
+from module.CuriosityModule import CuriosityModule
+from module.DrinkModule import DrinkModule
 from module.JokeModule import JokeModule
+from module.MusicModule import MusicModule
 from module.SwearwordModule import SwearwordModule
+from module.ThankModule import ThankModule
 from module.TimeModule import TimeModule
 from module.WeatherModule import WeatherModule
 
 
 class Assistant:
-    list_of_module = {TimeModule(), WeatherModule(), SwearwordModule(), JokeModule()}
+    list_of_module = {
+        TimeModule(),
+        WeatherModule(),
+        SwearwordModule(),
+        JokeModule(),
+        CuriosityModule(),
+        DrinkModule(),
+        MusicModule(),
+        ThankModule()}
 
     def __init__(self):
         self.speaker = Speaker()
@@ -27,6 +39,7 @@ class Assistant:
         if module:
             response = module.response(command)
             self.speaker.speak(response)
+            module.work()
 
     def found_module(self, command):
         for module in self.list_of_module:
