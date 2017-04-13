@@ -7,8 +7,8 @@ from module.Weather import Weather
 
 class WeatherModule(AbstractMode):
     KEY_WORDS = ["pogod"]
-    BEFORE_CITY_WORD = "dla"
-    BEFORE_DAY_WORD = "za"
+    BEFORE_CITY_WORD = [" dla "]
+    BEFORE_DAY_WORD = [" za ", " na "]
 
     def __init__(self):
         AbstractMode.__init__(self)

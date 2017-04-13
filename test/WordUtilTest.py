@@ -19,13 +19,18 @@ class WordUtilTest(unittest.TestCase):
         module = WeatherModule()
         text = "Pogoda dla Kraków test"
         word = get_next_word_in_text(text, module.BEFORE_CITY_WORD)
-        self.assertEqual(word, "kraków")
+        self.assertEqual(word, "Kraków")
 
     def test_next_word_day(self):
         module = WeatherModule()
         text = "Pogoda dla Kraków za 3 dni"
         word = get_next_word_in_text(text, module.BEFORE_DAY_WORD)
         self.assertEqual(word, "3")
+
+    def test_next_word_music(self):
+        text = "Muzyka dla folderów Kraków"
+        word = get_next_word_in_text(text, [" folde[a-z]*", " katalog"])
+        self.assertEqual(word, "Kraków")
 
 
 if __name__ == '__main__':

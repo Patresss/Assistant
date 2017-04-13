@@ -35,5 +35,3 @@ sudo apt-get install libmpg123-dev
 
 
 sudo apt-get install vlc
-
-MUST: pip3 install gTTS --user

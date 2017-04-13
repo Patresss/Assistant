@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 import logging
 import speech_recognition
+from subprocess import Popen, PIPE, STDOUT
+
+import time
 
 
 class Listener:
-
     DEFAULT_LANGUAGE = 'pl-PL'
-    logging.basicConfig(level=logging.DEBUG)
     logger = logging.getLogger(__name__)
+    phrase_time_limit = None
 
     def __init__(self):
         self.recognizer = speech_recognition.Recognizer()
@@ -15,7 +17,7 @@ class Listener:
     def listen(self):
         with speech_recognition.Microphone() as source:
             print("Say something!")
-            audio = self.recognizer.listen(source)
+            audio = self.recognizer.listen(source, phrase_time_limit=self.phrase_time_limit)
 
         # recognize speech using Google Speech Recognition
         try:

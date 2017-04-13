@@ -29,6 +29,7 @@ class Assistant:
         self.listener = Listener()
 
     def run(self):
+        self.speaker.speak("Dzień dobry")
         while True:
             sys.stdout.flush()
             self.listen()
@@ -39,7 +40,7 @@ class Assistant:
         if module:
             response = module.response(command)
             self.speaker.speak(response)
-            module.work()
+            module.work(command)
 
     def found_module(self, command):
         for module in self.list_of_module:
