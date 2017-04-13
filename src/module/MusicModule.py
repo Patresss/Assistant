@@ -14,7 +14,7 @@ class MusicModule(AbstractMode):
     KEY_WORDS = ["muzyk", "imprez"]
 
     FOLDER_WORDS = ["folderów", "folde[a-z]*", "kataloga-z]*"]
-    STOP_WORDS = ["stop", "[a-z]*trzymaj[a-z]*", "pauza"]
+    STOP_WORDS = ["stop", "[a-z]*trzymaj", "pauza"]
     NEXT_WORDS = ["[a-z]*stęp[a-z]*", "[a-z]*step[a-z]*", "[d]?alej"]
     MANAGER_WORDS = STOP_WORDS + NEXT_WORDS
     player = None

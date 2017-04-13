@@ -9,6 +9,7 @@ from module.DrinkModule import DrinkModule
 from module.JokeModule import JokeModule
 from module.MusicModule import MusicModule
 from module.SwearwordModule import SwearwordModule
+from module.SystemModule import SystemModule
 from module.ThankModule import ThankModule
 from module.TimeModule import TimeModule
 from module.WeatherModule import WeatherModule
@@ -24,7 +25,8 @@ class Assistant:
         CuriosityModule(),
         DrinkModule(),
         MusicModule(),
-        ThankModule()}
+        ThankModule(),
+        SystemModule()}
 
     def __init__(self):
         self.speaker = Speaker()
