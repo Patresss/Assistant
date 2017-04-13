@@ -28,8 +28,8 @@ class WordUtilTest(unittest.TestCase):
         self.assertEqual(word, "3")
 
     def test_next_word_music(self):
-        text = "Muzyka dla folderów Kraków"
-        word = get_next_word_in_text(text, [" folde[a-z]*", " katalog"])
+        text = "Muzyka dla folderu Kraków"
+        word = get_next_word_in_text(text, ["folde[a-z]*", "katalog"])
         self.assertEqual(word, "Kraków")
 
 

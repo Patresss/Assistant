@@ -13,9 +13,9 @@ class MusicModule(AbstractMode):
     logger = logging.getLogger(__name__)
     KEY_WORDS = ["muzyk", "imprez"]
 
-    FOLDER_WORDS = [" folde[a-z]* ", " kataloga-z]* "]
+    FOLDER_WORDS = ["folderów", "folde[a-z]*", "kataloga-z]*"]
     STOP_WORDS = ["stop", "[a-z]*trzymaj[a-z]*", "pauza"]
-    NEXT_WORDS = ["stęp", "step", "dalej"]
+    NEXT_WORDS = ["[a-z]*stęp[a-z]*", "[a-z]*step[a-z]*", "[d]?alej"]
     MANAGER_WORDS = STOP_WORDS + NEXT_WORDS
     player = None
     MUSIC_PATH = "../music/"
