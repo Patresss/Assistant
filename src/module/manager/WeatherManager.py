@@ -6,7 +6,7 @@ import pyowm
 from pyowm.exceptions.not_found_error import NotFoundError
 
 
-class Weather:
+class WeatherManager:
     KEY_API = "cbbb2a1fffc0881cd553539bd15bfc61"
     DEFAULT_CITY = "Krakow"
     DEFAULT_DAY = 0

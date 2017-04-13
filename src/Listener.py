@@ -21,7 +21,7 @@ class Listener:
 
         # recognize speech using Google Speech Recognition
         try:
-            text = self.recognizer.recognize_google(audio, language=self.DEFAULT_LANGUAGE)
+            text = self.recognizer.recognize_google(audio, language=self.DEFAULT_LANGUAGE).lower()
             logging.debug("Google Speech Recognition thinks you said " + text)
             return text
         except speech_recognition.UnknownValueError:

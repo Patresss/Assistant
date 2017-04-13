@@ -2,7 +2,7 @@
 from WordUtil import get_next_word_in_text
 from module.AbstractModule import AbstractMode
 
-from module.Weather import Weather
+from module.manager.WeatherManager import WeatherManager
 
 
 class WeatherModule(AbstractMode):
@@ -23,7 +23,7 @@ class WeatherModule(AbstractMode):
             day = 0
 
         if city == "":
-            weather = Weather(day_to_forecast=day)
+            weather = WeatherManager(day_to_forecast=day)
         else:
-            weather = Weather(city, day)
+            weather = WeatherManager(city, day)
         return weather.get_response()

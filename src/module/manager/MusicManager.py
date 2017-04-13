@@ -27,6 +27,8 @@ class MusicManager:
         return music_list
 
     def next_music(self):
+       # while True:
+       #     if (not (self.player is None) and not self.player.is_playing()) or self.player is None:
         music = self.get_random_music()
         self.play_music(music)
 

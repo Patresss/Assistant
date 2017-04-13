@@ -6,7 +6,7 @@ from module.AbstractModule import AbstractMode
 
 
 class SwearwordModule(AbstractMode):
-    KEY_WORDS = ["kurwa", "zajebist", "pierdol", 'chuj', 'spierdalaj']
+    KEY_WORDS = ["kurwa", "zajeb", "pierdol", '[c]?huj', 'spierdalaj']
 
     def __init__(self):
         AbstractMode.__init__(self)

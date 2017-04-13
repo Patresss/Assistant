@@ -2,6 +2,7 @@
 import sys
 
 from Listener import Listener
+from Singleton import Singleton
 from Speaker import Speaker
 from module.CuriosityModule import CuriosityModule
 from module.DrinkModule import DrinkModule
@@ -13,6 +14,7 @@ from module.TimeModule import TimeModule
 from module.WeatherModule import WeatherModule
 
 
+@Singleton
 class Assistant:
     list_of_module = {
         TimeModule(),

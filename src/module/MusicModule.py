@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
+import logging
 import os
 import random
 
-import logging
-
+import Assistant
 from WordUtil import get_next_word_in_text, is_word_in_text
 from module.AbstractModule import AbstractMode
-from module.MusicManager import MusicManager
+from module.manager.MusicManager import MusicManager
 
 
 class MusicModule(AbstractMode):
@@ -14,7 +14,7 @@ class MusicModule(AbstractMode):
     KEY_WORDS = ["muzyk", "imprez"]
 
     FOLDER_WORDS = [" folde[a-z]* ", " kataloga-z]* "]
-    STOP_WORDS = ["stop", "trzymaj", "pauza"]
+    STOP_WORDS = ["stop", "[a-z]*trzymaj[a-z]*", "pauza"]
     NEXT_WORDS = ["stęp", "step", "dalej"]
     MANAGER_WORDS = STOP_WORDS + NEXT_WORDS
     player = None
@@ -30,7 +30,7 @@ class MusicModule(AbstractMode):
             return ""
         elif is_word_in_text(command, self.STOP_WORDS):
             self.music_manager.stop_music()
-            self.working = False
+            self.set_working(False)
             return "Zatrzymuję muzykę"
         else:
             folder = get_next_word_in_text(command, self.FOLDER_WORDS)
@@ -43,8 +43,16 @@ class MusicModule(AbstractMode):
                     return str(error)
             else:
                 self.music_manager.init_all_music()
-            self.working = True
+                self.set_working(True)
             return "Uruchamiam muzyke " + folder
+
+    def set_working(self, work):
+        self.working = work
+        if work:
+            Assistant.Assistant.Instance().listener.phrase_time_limit = 2
+        else:
+            Assistant.Assistant.Instance().listener.phrase_time_limit = None
+
 
     def get_random_music(self, folder):
         folder_path = self.MUSIC_PATH + folder
