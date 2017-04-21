@@ -7,6 +7,7 @@ from module.SwearwordModule import SwearwordModule
 from module.ThankModule import ThankModule
 from module.TimeModule import TimeModule
 from module.WeatherModule import WeatherModule
+from module.manager.MpdClient import MpdClient
 
 
 class ModuleTest(unittest.TestCase):

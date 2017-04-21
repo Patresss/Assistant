@@ -35,3 +35,37 @@ sudo apt-get install libmpg123-dev
 
 
 sudo apt-get install vlc
+
+
+
+// =============================================================
+// Mopidy
+// =============================================================
+//Instalacja
+sudo wget -q -O - https://apt.mopidy.com/mopidy.gpg | sudo apt-key add -
+sudo wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/mopidy.list
+sudo apt-get update
+sudo apt-get install mopidy
+sudo dpkg-reconfigure mopidy
+sudo /etc/init.d/mopidy restart
+//Konfiguracja
+sudo chmod 777 /etc/mopidy/mopidy.conf
+sudo  /etc/mopidy/mopidy.conf
+// Instalacja modułów
+sudo apt-get install mopidy-spotify
+sudo apt-get install mopidy-local-sqlite
+// Perrmision for sqlite
+sudo chmod 777 -R /var/lib/mopidy/
+// Scan music
+sudo mopidyctl local scan
+
+// Instalacja klienta
+sudo pip install Mopidy-Moped
+// Restart
+sudo service mopidy restart
+
+
+// =============================================================
+// MPD
+// =============================================================
+pip install python-mpd2
